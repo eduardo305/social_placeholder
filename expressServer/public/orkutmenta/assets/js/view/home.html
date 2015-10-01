@@ -1,0 +1,10 @@
+<md-content layout="column" flex class="md-padding">
+  <h2>You might know them</h2>
+  <ul ng-repeat="tile in tiles">
+    <li>
+      <img ng-src="{{gravatarify(tile.email)}}" alt="">
+      {{tile.title}}
+      <button ng-click="addFriend(tile)">Add</button>
+    </li>
+  </ul>
+</md-content>

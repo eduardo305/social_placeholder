@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="small-12 columns">
+    <h2>Search results for "{{term}}"</h2>
+    <ul>
+      <li ng-repeat="person in people">
+        <img ng-src="{{gravatarify(person.email)}}" alt="">
+        <p> {{ person.name }} </p>
+        <button ng-click="addFriend(person)" ng-if="!(isFriend(person))">Add</button>
+      </li>
+    </ul>
+  </div>
+</div>
