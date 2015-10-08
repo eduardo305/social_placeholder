@@ -5,7 +5,6 @@ var app = app || angular.module('Orkut');
 app.service('User', function($resource, BASE_URL, $cookies) {
 
   function getCookie() {
-    console.log('cookieee', $cookies.get('socialAPI'));
     return $cookies.get('socialAPI');
   }
 
@@ -24,7 +23,7 @@ app.service('User', function($resource, BASE_URL, $cookies) {
     'me':     { method: 'GET',
                 url: BASE_URL + '/users/me',
                 withCredentials: true,
-                headers: { 'Cookie' : 'socialAPI=' + getCookie} },
+                headers: { 'Cookie' : 'socialAPI=' + getCookie()} },
     'available': { isArray : true,
                 method: 'GET',
                 url: BASE_URL + '/users/available',
