@@ -13,7 +13,6 @@
     <div class="row">
         <div class="small-12 columns">
             ACSocial Header
-            <p ng-show="me">Hi, {{me.name}}</p>
         </div>
         <div class="small-12 columns">
             <form ng-submit="search()">
@@ -29,47 +28,51 @@
             </form>
         </div>
     </div>
+    <div class="row hero-box" ng-show="me" data-interchange="[assets/images/image01-default.jpg, (default)], [assets/images/image01-small.jpg, (small)], [assets/images/image01-medium.jpg, (medium)], [assets/images/image01-large.jpg, (large)]">
+        <div class="small-12 columns">
+            <img ng-src="{{gravatarify(me.email)}}" class="th">
+            <p class="name">{{me.name}}</p>
+        </div>
+    </div>
     <div class="row">
         <!-- Side content -->
         <div class="small-12 medium-3 columns show-for-medium-up">
             <div ng-controller="SidebarCtrl">
                 <div class="row">
                     <div class="small-12 columns">
-                        <h4>Friends</h4>
+                        <h4 class="title">Friends</h4>
                         <ul class="small-block-grid-3">
                             <li ng-repeat="item in friends">
-                                <img ng-src="{{gravatarify(item.user.email)}}" alt="">
+                                <img ng-src="{{gravatarify(item.user.email)}}" class="th" alt="">
+                                <h6 class="name">{{ item.user.name }}</h6>
                             </li>
                         </ul>
                         <p ng-show="friends.length < 1">You don't have friends yet</p>
                     </div>
-                    <hr>
                 </div>
                 <div class="row">
                     <div class="small-12 columns">
-                        <h4>Requests received</h4>
+                        <h4 class="title">Requests received</h4>
                         <ul class="small-block-grid-3">
                             <li ng-repeat="person in received">
-                                <img ng-src="{{gravatarify(person.userRequester.email)}}" alt="">
-                                <h5>{{ person.userRequester.name }}</h5>
+                                <img ng-src="{{gravatarify(person.userRequester.email)}}" class="th" alt="">
+                                <h6 class="name">{{ person.userRequester.name }}</h6>
                             </li>
                         </ul>
                         <p ng-show="received.length < 1">You don't have requests yet...</p>
                     </div>
-                    <hr>
                 </div>
                 <div class="row">
                     <div class="small-12 columns">
-                        <h4>Sent requests</h4>
+                        <h4 class="title">Sent requests</h4>
                         <ul class="small-block-grid-3">
                             <li ng-repeat="person in sent">
-                                <img ng-src="{{gravatarify(person.userRequested.email)}}" alt="">
-                                <h5>{{ person.userRequested.name }}</h5>
+                                <img ng-src="{{gravatarify(person.userRequested.email)}}" class="th" alt="">
+                                <h6 class="name">{{ person.userRequested.name }}</h6>
                             </li>
                         </ul>
                         <p ng-show="sent.length < 1">You didn't send any request yet...</p>
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>
@@ -78,40 +81,40 @@
             <div id="content" ui-view></div>
         </div>
     </div>
-    
-        <!-- Angular Material Dependencies -->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-aria.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.10.1/angular-material.min.js"></script>
-        <script type="text/javascript" src="//cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-        <script type="text/javascript" src="//cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
-        <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
-        <script type="text/javascript" src="assets/js/lib/md5.js"></script>
-        <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
-        <script type="text/javascript" src="assets/js/app.js"></script>
-        <script type="text/javascript" src="assets/js/config/theme.js"></script>
-        <script type="text/javascript" src="assets/js/config/constant.js"></script>
-        <script type="text/javascript" src="assets/js/config/interceptor.js"></script>
-        <script type="text/javascript" src="assets/js/config/cors.js"></script>
-        <script type="text/javascript" src="assets/js/config/icon.js"></script>
-        <script type="text/javascript" src="assets/js/config/route.js"></script>
-        <script type="text/javascript" src="assets/js/factory/HttpResponseInterceptor.js"></script>
-        <script type="text/javascript" src="assets/js/factory/ChatRoom.js"></script>
-        <script type="text/javascript" src="assets/js/service/User.js"></script>
-        <script type="text/javascript" src="assets/js/service/Friendship.js"></script>
-        <script type="text/javascript" src="assets/js/controller/AppCtrl.js"></script>
-        <script type="text/javascript" src="assets/js/controller/SearchCtrl.js"></script>
-        <script type="text/javascript" src="assets/js/controller/SidebarCtrl.js"></script>
-        <script type="text/javascript" src="assets/js/controller/ChatCtrl.js"></script>
-        <script>
-          $(document).foundation();
-        </script>
+    <!-- Angular Material Dependencies -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-resource.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-aria.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angular_material/0.10.1/angular-material.min.js"></script>
+    <script type="text/javascript" src="//cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+    <script type="text/javascript" src="//cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+    <script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.5.0/angular-material-icons.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/md5.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/js/foundation.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/config/theme.js"></script>
+    <script type="text/javascript" src="assets/js/config/constant.js"></script>
+    <script type="text/javascript" src="assets/js/config/interceptor.js"></script>
+    <script type="text/javascript" src="assets/js/config/cors.js"></script>
+    <script type="text/javascript" src="assets/js/config/icon.js"></script>
+    <script type="text/javascript" src="assets/js/config/route.js"></script>
+    <script type="text/javascript" src="assets/js/factory/HttpResponseInterceptor.js"></script>
+    <script type="text/javascript" src="assets/js/factory/ChatRoom.js"></script>
+    <script type="text/javascript" src="assets/js/service/User.js"></script>
+    <script type="text/javascript" src="assets/js/service/Friendship.js"></script>
+    <script type="text/javascript" src="assets/js/controller/AppCtrl.js"></script>
+    <script type="text/javascript" src="assets/js/controller/SearchCtrl.js"></script>
+    <script type="text/javascript" src="assets/js/controller/SidebarCtrl.js"></script>
+    <script type="text/javascript" src="assets/js/controller/ChatCtrl.js"></script>
+    <script>
+    $(document).foundation();
+    // $(document).foundation('equalizer', 'reflow');
+    </script>
 </body>
 
 </html>

@@ -59,3 +59,41 @@
   width: 100%;
   text-align: center; }
 
+
+.fixed{
+  position: fixed !important;
+  top: 0px;
+}
+
+.hero-box{
+  background-position: center center; 
+  padding: 10px;
+}
+
+.hero-box .name{
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h4.title{
+  border-bottom: 1px solid #0A76B7;
+  color: #0A76B7;
+  margin-top: 10px;
+}
+h3.title{
+  border-bottom: 1px solid #0A76B7;
+  color: #0A76B7;
+  margin-top: 10px;
+}
+h5.name{
+  text-align: center;
+  font-size: 0.9rem !important;
+}
+h6.name{
+  text-align: center;
+  font-size: 0.7rem !important;
+}
+p.email{
+ word-break: break-all; 
+}

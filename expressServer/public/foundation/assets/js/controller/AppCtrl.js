@@ -71,15 +71,13 @@ app.controller('AppCtrl', function($scope, $rootScope, $mdSidenav, User, Friends
   $scope.addFriend = function(tile) {
     var id = tile._id;
     $scope.tiles = $filter('filter')($scope.tiles, {_id: '!' + id});
-    Friendship.invite({id: id}, function(data) {
-      $rootScope.$broadcast('friendship:requested');
-      $mdToast.show(
-        $mdToast.simple()
-          .content('Friend request has been sent!')
-          .position('bottom right')
-          .hideDelay(3000)
-      );
-    })
+
+
+    $mdToast.show({
+       template: '<div data-alert class="alert-box success fixed">Friend request has been sent!</div>',
+       hideDelay: 3000
+   });
+
   };
 
   $scope.getSuggestions = function() {
