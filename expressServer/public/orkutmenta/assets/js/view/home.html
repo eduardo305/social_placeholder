@@ -1,10 +1,71 @@
-<md-content layout="column" flex class="md-padding">
-  <h2>You might know them</h2>
-  <ul ng-repeat="tile in tiles">
-    <li>
-      <img ng-src="{{gravatarify(tile.email)}}" alt="">
-      {{tile.title}}
-      <button ng-click="addFriend(tile)">Add</button>
-    </li>
-  </ul>
-</md-content>
+<!-- Main panels -->
+<div class="row" data-equalizer>
+    <div class="small-12 columns">
+        <h2>You might know them</h2>
+        <ul class="small-block-grid-2 medium-block-grid-3">
+            <li ng-repeat="tile in tiles">
+            	<div data-equalizer-watch>
+                <a class="text-center">
+                    <img ng-src="{{gravatarify(tile.email)}}" alt="" style="width: 100%;">
+                    <h6>{{tile.title}}</h6>
+                    <button ng-click="addFriend(tile)" class="expand">Add</button>
+                </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <hr>
+</div>
+<!-- Secondary panels -->
+<div class="row">
+    <div class="small-12 columns show-for-small-only">
+        <div ng-controller="SidebarCtrl">
+            <div class="row">
+                <div class="small-12 columns">
+                    <h3>Friends</h3>
+                    <ul class="small-block-grid-3">
+                        <li ng-repeat="item in friends">
+                            <a class="text-center">
+                                <img ng-src="{{gravatarify(item.user.email)}}" alt="" style="width: 100%;">
+                                <h6>{{item.user.name}}</h6>
+                            </a>
+                        </li>
+                    </ul>
+                    <p ng-show="friends.length < 1">You don't have friends yet</p>
+                </div>
+                <hr>
+            </div>
+            <div class="row">
+                <div class="small-12 columns">
+                    <h3>Requests received</h3>
+                    <ul class="small-block-grid-3">
+                        <li ng-repeat="person in received">
+                            <a class="text-center">
+                                <img ng-src="{{gravatarify(person.userRequester.email)}}" alt="" style="width: 100%;">
+                                <h3>{{ person.userRequester.name }}</h3>
+                                <p>{{ person.userRequester.email }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <p ng-show="received.length < 1">You don't have requests yet...</p>
+                </div>
+                <hr>
+            </div>
+            <div class="row" data-equalizer>
+                <div class="small-12 columns">
+                    <h3>Sent requests</h3>
+                    <ul class="small-block-grid-3">
+                        <li ng-repeat="person in sent">
+                            <a class="text-centerq">
+                                <img ng-src="{{gravatarify(person.userRequested.email)}}" alt="">
+                                <h6>{{ person.userRequested.name }}</h6>
+                            </a>
+                        </li>
+                    </ul>
+                    <p ng-show="sent.length < 1">You didn't send any request yet...</p>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
