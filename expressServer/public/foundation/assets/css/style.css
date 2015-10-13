@@ -97,3 +97,18 @@ h6.name{
 p.email{
  word-break: break-all; 
 }
+.searchRow{
+  margin-top: 20px;
+}
+
+.person{
+  text-align: center;
+}
+
+.person p{
+  font-size: 0.7rem;
+  color: #666666;
+}
+.person:hover p{
+  color: #000000;
+}
