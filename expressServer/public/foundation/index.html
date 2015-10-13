@@ -11,14 +11,23 @@
 
 <body ng-controller="AppCtrl">
     <div class="row">
-        <div class="small-12 columns">
+        <!-- <div class="small-12 columns">
             ACSocial Header
+        </div> -->
+        <div>
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="/foundation">ACSocial</a></h1>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="small-12 columns">
+        <div>
             <form ng-submit="search()">
                 <div class="row collapse">
                     <div class="small-9 medium-11 columns">
-                        <input type="text" ng-model="query" placeholder="who you are looking for?">
+                        <input type="text" ng-model="query" placeholder="who are you looking for?">
                     </div>
                     <div class="small-3 medium-1 columns">
                         <input type="submit" class="button postfix" value="Go">
