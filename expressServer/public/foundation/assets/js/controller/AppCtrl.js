@@ -96,7 +96,7 @@ app.controller('AppCtrl', function($scope, $rootScope, $mdSidenav, User, Friends
   };
 
   $scope.search = function() {
-    $state.go('search', {query : $scope.query});
+    $state.go('search', {query : $scope.query, page: "0"  });
   };
 
   $scope.gravatarify = function(email) {
