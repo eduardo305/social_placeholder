@@ -1,13 +1,20 @@
 'use strict';
 
 var app = app || angular.module('Orkut');
+var MAX_SEARCH_ITEMS = 10;
 
 app.controller('SearchCtrl', function($scope, $stateParams, User, Friendship, $cookies, $filter, md5) {
   $scope.term = $stateParams.query;
+  $scope.currentPage = parseInt($stateParams.page) || 0;
 
   User.query({q : $scope.term}, function(data) {
-    $scope.people = data;
-  })
+    // $scope.people = data;
+    $scope.people = data.slice($scope.currentPage * MAX_SEARCH_ITEMS, $scope.currentPage * MAX_SEARCH_ITEMS + MAX_SEARCH_ITEMS);
+    $scope.totalPeople = data.length;
+    var size = data.length;
+    var pages = Math.round(size / MAX_SEARCH_ITEMS);
+    $scope.pages = pages;
+  });
 
   var me = angular.fromJson($cookies.get('me'));
   var friends, sent, received;
@@ -42,4 +49,14 @@ app.controller('SearchCtrl', function($scope, $stateParams, User, Friendship, $c
     return 'http://www.gravatar.com/avatar/' + md5.createHash(email) + '.jpg';
   };
 
-});
+}).filter('range', function() {
+  return function(input, total) {
+    total = parseInt(total);
+
+    for (var i=0; i<total; i++) {
+      input.push(i);
+    }
+
+    return input;
+  };
+});;

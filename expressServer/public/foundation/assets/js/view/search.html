@@ -1,12 +1,19 @@
 <div class="row">
     <div class="small-12 columns">
-        <h3 class="title">Search results for "{{term}}"</h3>
+        <h3 class="title">Search results for "{{term}}" - {{totalPeople}} results</h3>
         <ul class="small-block-grid-5">
             <li ng-repeat="person in people" class="person">
                 <img ng-src="{{gravatarify(person.email)}}" alt="{{person.name}}" title="{{person.name}}" class="th">
                 <p> {{ person.name }} </p>
-                <button ng-click="addFriend(person)" class="info" ng-if="!(isFriend(person) || isMe(person))">Add</button>
+                <button ng-click="addFriend(person)" class="info"  ng-show="!(isFriend(person) || isMe(person))">Add</button>
             </li>
         </ul>
+        <div class="pagination-centered">
+            <ul class="pagination">
+                <li class="arrow" ng-class="{'unavailable': currentPage == 0 }"><a href="#/search/{{term}}/{{currentPage != 0 ? currentPage-1 : 0}}">&laquo;</a></li>
+                <li class="" ng-class="{'current': i == currentPage}" ng-repeat="i in [] | range:pages"><a href="#/search/{{term}}/{{i}}">{{i+1}}</a></li>
+                <li class="arrow" ng-class="{'unavailable': currentPage == pages }"><a href="#/search/{{term}}/{{currentPage != pages-1 ? currentPage+1 : currentPage}}">&raquo;</a></li>
+            </ul>
+        </div>
     </div>
 </div>
