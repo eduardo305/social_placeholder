@@ -12,7 +12,7 @@ app.controller('SearchCtrl', function($scope, $stateParams, User, Friendship, $c
     $scope.people = data.slice($scope.currentPage * MAX_SEARCH_ITEMS, $scope.currentPage * MAX_SEARCH_ITEMS + MAX_SEARCH_ITEMS);
     $scope.totalPeople = data.length;
     var size = data.length;
-    var pages = Math.round(size / MAX_SEARCH_ITEMS);
+    var pages = Math.ceil(size / MAX_SEARCH_ITEMS);
     $scope.pages = pages;
   });
 
