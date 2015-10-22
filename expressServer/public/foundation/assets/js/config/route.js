@@ -12,7 +12,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl : 'assets/js/view/home.html'
     })
     .state('search', {
-      url : '/search/:query/:page',
+      url : '/search/:query/:pages',
       templateUrl : 'assets/js/view/search.html',
       controller : 'SearchCtrl'
     }).
