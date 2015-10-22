@@ -18,6 +18,14 @@ app.service('Friendship', function($resource, BASE_URL) {
                   url : BASE_URL + '/friendships/:id',
                   params : {id : '@id'},
                   withCredentials: true},
+    'accept' :  { method : 'PUT',
+                  url : BASE_URL + '/friendships/:id',
+                  params : {id : '@id'},
+                  withCredentials: true},
+    'reject' :  { method : 'DELETE',
+                  url : BASE_URL + '/friendships/:id',
+                  params : {id : '@id'},
+                  withCredentials: true},
     'delete': { method: 'DELETE',
                 withCredentials: true }
   });

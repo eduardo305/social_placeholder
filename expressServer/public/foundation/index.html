@@ -48,6 +48,8 @@
                 <img ng-src="{{gravatarify(person.userRequester.email)}}" alt="">
                 <h3>{{ person.userRequester.name }}</h3>
                 <p>{{ person.userRequester.email }}</p>
+                <button ng-click="acceptFriend(person)" ng-show="!(isFriend(person) || isMe(person))">V</button>
+                <button ng-click="rejectFriend(person)" ng-show="!(isFriend(person) || isMe(person))">X</button>
               </li>
             </ul>
           </div>

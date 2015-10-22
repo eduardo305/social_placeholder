@@ -60,7 +60,11 @@ app.controller('SearchCtrl', function($scope, $stateParams, User, Friendship, $c
     };
 
     $scope.gravatarify = function(email) {
-        return 'http://www.gravatar.com/avatar/' + md5.createHash(email) + '.jpg';
+        if (email && email.length > 0) {
+            return 'http://www.gravatar.com/avatar/' + md5.createHash(email) + '.jpg';
+        } else {
+            return '';
+        }
     };
 
 }).filter('range', function() {
