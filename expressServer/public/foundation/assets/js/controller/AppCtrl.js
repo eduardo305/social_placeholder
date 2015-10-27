@@ -132,7 +132,7 @@ app.controller('AppCtrl', function($scope, $rootScope, $mdSidenav, User, Friends
 
             $rootScope.$broadcast('friendship:requested');
             $mdToast.show({
-                template: '<div data-alert class="alert-box success fixed">Friendship rejected!</div>',
+                template: '<div data-alert class="alert-box alert fixed">Friendship rejected!</div>',
                 hideDelay: 3000
             });
         })
